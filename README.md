@@ -2,6 +2,10 @@
 
 ---
 
+Vhodne antena: 
+Smerova: https://rlx.sk/sk/accessories-ipod/5563-4ghz-14dbi-directional-panel-antenna-kit-for-wifi-router-er-wcw29099r.html
+Vsesmer: https://allegro.sk/produkt/vsesmerova-antena-iapt-tales-14v-6237ebcb-edbe-46c6-ac01-743b97f2b3d9?offerId=6095275478
+
 ### Najprv EIRP (efektívny vyžiarený výkon):
 
 ```
