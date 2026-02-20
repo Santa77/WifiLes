@@ -1,10 +1,12 @@
+
 ### Výpočet dosahu – 20 dBm TX + 14 dBi anténa
 
 ---
 
-Vhodne antena: 
-Smerova: https://rlx.sk/sk/accessories-ipod/5563-4ghz-14dbi-directional-panel-antenna-kit-for-wifi-router-er-wcw29099r.html
-Vsesmer: https://allegro.sk/produkt/vsesmerova-antena-iapt-tales-14v-6237ebcb-edbe-46c6-ac01-743b97f2b3d9?offerId=6095275478
+#### Vhodné antény: 
+
+* Smerová: https://rlx.sk/sk/accessories-ipod/5563-4ghz-14dbi-directional-panel-antenna-kit-for-wifi-router-er-wcw29099r.html
+* Všesmer: https://allegro.sk/produkt/vsesmerova-antena-iapt-tales-14v-6237ebcb-edbe-46c6-ac01-743b97f2b3d9?offerId=6095275478
 
 ### Najprv EIRP (efektívny vyžiarený výkon):
 
@@ -57,4 +59,4 @@ Táto asymetria sa čiastočne kompenzuje tým, že sektorová anténa **prijím
 
 ### Praktické odporúčanie:
 
-V hustom lese reálne počítaj s **150–300 metrami** spoľahlivého spojenia pre mobilný telefón. Pre väčší dosah by pomohlo skôr **umiestniť AP vyššie** (nad koruny stromov) ako zvyšovať výkon.
+V hustom lese reálne počítaj s **150–300 metrami** spoľahlivého spojenia pre mobilný telefón.
