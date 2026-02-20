@@ -1,0 +1,54 @@
+# ============================================
+# MikroTik AP - Maximálny dosah (les / outdoor)
+# Interface: wlan1 | SSID: WifiLes | Kanál: 1
+# ============================================
+
+# 1. Krajina - legálne limity TX power
+/interface wireless set wlan1 country=slovakia
+
+# ============================================
+# Obidenie legalnych limitov vykonu
+# ============================================
+# /interface wireless set wlan1 country="no country set"
+
+
+# 2. Security profil WPA2
+/interface wireless security-profiles
+add name=WifiLes-sec \
+  mode=dynamic-keys \
+  authentication-types=wpa2-psk \
+  wpa2-pre-shared-key=WiFiLeS2026 \
+  unicast-ciphers=aes-ccm \
+  group-ciphers=aes-ccm
+
+# 3. Hlavné nastavenia wireless
+/interface wireless
+set wlan1 \
+  mode=ap-bridge \
+  ssid=WifiLes \
+  band=2ghz-b/g/n \
+  channel-width=20mhz \
+  frequency=2412 \
+  tx-power=30 \
+  tx-power-mode=all-rates-fixed \
+  distance=outdoors \
+  security-profile=WifiLes-sec \
+  disconnect-timeout=1m \
+  on-fail-retry-time=1m \
+  disabled=no
+
+# 4. Advanced - noise floor
+/interface wireless advanced
+set wlan1 \
+  noise-floor-offset=0
+
+# ============================================
+# Overenie nastavení
+# ============================================
+/interface wireless print
+/interface wireless monitor wlan1 once
+
+# ============================================
+# Obidenie legalnych limitov vykonu
+# ============================================
+/interface wireless set wlan1 country="no country set"
