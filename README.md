@@ -1,4 +1,5 @@
 
+
 ### Výpočet dosahu – 20 dBm TX + 14 dBi anténa
 
 ---
@@ -7,6 +8,12 @@
 
 * Smerová: https://rlx.sk/sk/accessories-ipod/5563-4ghz-14dbi-directional-panel-antenna-kit-for-wifi-router-er-wcw29099r.html
 * Všesmer: https://allegro.sk/produkt/vsesmerova-antena-iapt-tales-14v-6237ebcb-edbe-46c6-ac01-743b97f2b3d9?offerId=6095275478
+
+#### Napájanie:
+
+* Buck konvertor: https://techfun.sk/produkt/buck-boost-modul-0-5-30v-5a-zk-5kx/
+<img src="https://techfun.sk/wp-content/uploads/2022/05/a-37.jpg" alt="Alt Text" width="400">
+Mení vstupné napätie 6 – 36V na výstupné napätie: 0,6 – 36V. Max 4A na výstupe, 18V x 4A = max 72 Watt
 
 ### Najprv EIRP (efektívny vyžiarený výkon):
 
