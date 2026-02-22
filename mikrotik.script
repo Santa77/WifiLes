@@ -1,15 +1,15 @@
 # ============================================
 # MikroTik AP - Maximálny dosah (les / outdoor)
-# Interface: wlan1 | SSID: WifiLes | Kanál: 1
+# Interface: wifi1 | SSID: WifiLes | Kanál: 1
 # ============================================
 
 # 1. Krajina - legálne limity TX power
-/interface wireless set wlan1 country=slovakia
+/interface wireless set wifi1 country=slovakia
 
 # ============================================
 # Obidenie legalnych limitov vykonu
 # ============================================
-# /interface wireless set wlan1 country="no country set"
+# /interface wireless set wifi1 country="no country set"
 
 
 # 2. Security profil WPA2
@@ -23,7 +23,7 @@ add name=WifiLes-sec \
 
 # 3. Hlavné nastavenia wireless
 /interface wireless
-set wlan1 \
+set wifi1 \
   mode=ap-bridge \
   ssid=WifiLes \
   band=2ghz-b/g/n \
@@ -39,16 +39,56 @@ set wlan1 \
 
 # 4. Advanced - noise floor
 /interface wireless advanced
-set wlan1 \
+set wifi1 \
   noise-floor-offset=0
 
 # ============================================
 # Overenie nastavení
 # ============================================
-/interface wireless print
-/interface wireless monitor wlan1 once
+#/interface wireless print
+#/interface wireless monitor wifi1 once
 
 # ============================================
 # Obidenie legalnych limitov vykonu
 # ============================================
-/interface wireless set wlan1 country="no country set"
+#/interface wireless set wifi1 country="no country set"
+
+# ============================================
+# Bridge + IP adresa
+# ============================================
+
+# 5. Vytvorenie bridge
+/interface bridge
+add name=bridge1 comment="WifiLes bridge"
+
+# 6. Pridanie wifi1 do bridge
+/interface bridge port
+add interface=wifi1 bridge=bridge1
+
+# 7. IP adresa na bridge
+/ip address
+add address=192.168.221.1/24 interface=bridge1 comment="WifiLes LAN"
+
+# ============================================
+# DHCP server
+# ============================================
+
+# 8. IP pool - rozsah prideľovaných adries
+/ip pool
+add name=dhcp-pool-wifiles \
+  ranges=192.168.221.10-192.168.221.254
+
+# 9. DHCP server
+/ip dhcp-server
+add name=dhcp-wifiles \
+  interface=bridge1 \
+  address-pool=dhcp-pool-wifiles \
+  lease-time=1h \
+  disabled=no
+
+# 10. DHCP network - gateway + DNS
+/ip dhcp-server network
+add address=192.168.221.0/24 \
+  gateway=192.168.221.1 \
+  dns-server=8.8.8.8,8.8.4.4 \
+  comment="WifiLes DHCP network"
